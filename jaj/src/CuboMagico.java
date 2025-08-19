@@ -1,44 +1,7 @@
-public class girarFace {
-public  static class Face {
-  private char[][] matriz;
+package jaj.src;
 
-  public Face(char cor) {
-      matriz = new char[3][3];
-      for (int i = 0; i < 3; i++) {
-          for (int j = 0; j < 3; j++) {
-              matriz[i][j] = cor;
-          }
-      }
-  }
 
-  public char[][] getMatriz() {
-      return matriz;
-  }
-
-  // Gira a face no sentido horário
-  public void girarHorario() {
-      char[][] nova = new char[3][3];
-      for (int i = 0; i < 3; i++) {
-          for (int j = 0; j < 3; j++) {
-              nova[j][2 - i] = matriz[i][j];
-          }
-      }
-      matriz = nova;
-  }
-
-  // Gira a face no sentido anti-horário
-  public void girarAntiHorario() {
-      char[][] nova = new char[3][3];
-      for (int i = 0; i < 3; i++) {
-          for (int j = 0; j < 3; j++) {
-              nova[2 - j][i] = matriz[i][j];
-          }
-      }
-      matriz = nova;
-  }
-}
-
-  public static class CuboMagico {
+class CuboMagico {
   private Face cima;
   private Face baixo;
   private Face frente;
@@ -56,46 +19,7 @@ public  static class Face {
   }
 
   // Exibir o cubo (mesma lógica que você já tinha no display())
-  public void exibir() {
-      char[][] cimaM = cima.getMatriz();
-      char[][] baixoM = baixo.getMatriz();
-      char[][] frenteM = frente.getMatriz();
-      char[][] trasM = tras.getMatriz();
-      char[][] esquerdaM = esquerda.getMatriz();
-      char[][] direitaM = direita.getMatriz();
-
-      // Face de cima
-      for (int i = 0; i < 3; i++) {
-          System.out.print("        ");
-          for (int j = 0; j < 3; j++) {
-              System.out.print(cimaM[i][j] + " ");
-          }
-          System.out.println();
-      }
-
-      // Faces laterais
-      for (int i = 0; i < 3; i++) {
-          for (int j = 0; j < 3; j++) System.out.print(esquerdaM[i][j] + " ");
-          System.out.print("  ");
-          for (int j = 0; j < 3; j++) System.out.print(frenteM[i][j] + " ");
-          System.out.print("  ");
-          for (int j = 0; j < 3; j++) System.out.print(direitaM[i][j] + " ");
-          System.out.print("  ");
-          for (int j = 0; j < 3; j++) System.out.print(trasM[i][j] + " ");
-          System.out.println();
-      }
-
-      // Face de baixo
-      for (int i = 0; i < 3; i++) {
-          System.out.print("        ");
-          for (int j = 0; j < 3; j++) {
-              System.out.print(baixoM[i][j] + " ");
-          }
-          System.out.println();
-      }
-
-      System.out.println();
-   }
+  
   public void moverFa() {
       frente.girarAntiHorario();
 
@@ -213,18 +137,3 @@ public  static class Face {
 }
 
 
-  public static void main(String[] args) {
-      CuboMagico cubo = new CuboMagico();
-      
-      cubo.exibir();
-      
-      cubo.moverD();
-    cubo.exibir();
-    cubo.moverD();
-    cubo.exibir();
-
-      cubo.moverD();// Faz um movimento na frente
-      
-      cubo.exibir();
-  }
-}
