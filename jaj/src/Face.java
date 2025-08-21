@@ -15,7 +15,6 @@ class Face {
         return matriz;
     }
   
-    // Gira a face no sentido horário
     public void girarHorario() {
         char[][] nova = new char[3][3];
         for (int i = 0; i < 3; i++) {
@@ -26,7 +25,6 @@ class Face {
         matriz = nova;
     }
   
-    // Gira a face no sentido anti-horário
     public void girarAntiHorario() {
         char[][] nova = new char[3][3];
         for (int i = 0; i < 3; i++) {
